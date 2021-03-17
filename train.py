@@ -341,17 +341,19 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
             if ema:
                 ema.update_attr(model, include=['yaml', 'nc', 'hyp', 'gr', 'names', 'stride', 'class_weights'])
             final_epoch = epoch + 1 == epochs
-            every_nth_testing=epoch % 15 == 0 # test every n epochs
+            #todo testing often first, then less when converging
+            every_nth_testing=epoch % 5 == 0 # test every n epochs
             if (not opt.notest and every_nth_testing) or final_epoch:  # Calculate mAP
                 results, maps, times = test.test(opt.data,
+                                                epochNo=epoch,
                                                  batch_size=batch_size * 2,
                                                  imgsz=imgsz_test,
                                                  model=ema.ema,
                                                  single_cls=opt.single_cls,
                                                  dataloader=testloader,
                                                  save_dir=save_dir,
-                                                 verbose=nc < 50 and final_epoch,
-                                                 plots=plots and final_epoch,
+                                                 verbose=nc < 50 ,
+                                                 plots=plots,
                                                  log_imgs=opt.log_imgs if wandb else 0,
                                                  compute_loss=compute_loss)
 

@@ -17,8 +17,10 @@ from utils.metrics import ap_per_class, ConfusionMatrix
 from utils.plots import plot_images, output_to_target, plot_study_txt
 from utils.torch_utils import select_device, time_synchronized
 
+plot_all_predictions=False
 
 def test(data,
+        epochNo,
          weights=None,
          batch_size=32,
          imgsz=640,
@@ -205,12 +207,19 @@ def test(data,
             stats.append((correct.cpu(), pred[:, 4].cpu(), pred[:, 5].cpu(), tcls))
 
         # Plot images
-        if plots and batch_i < 3:
-            f = save_dir / f'test_batch{batch_i}_labels.jpg'  # labels
-            Thread(target=plot_images, args=(img, targets, paths, f, names), daemon=True).start()
-            f = save_dir / f'test_batch{batch_i}_pred.jpg'  # predictions
+        if plots and batch_i<10:
+            imgpath=(save_dir /'all_pred_imgs')
+            imgpath.mkdir(parents=True, exist_ok=True)
+            f = imgpath / f'test_batch{batch_i}_epoch{epochNo}_labels.jpg'  # labels
+            isLabelImage = True
+            Thread(target=plot_images, args=(img, targets, paths, f, names, isLabelImage), daemon=True ).start()
+            f = imgpath / f'test_batch{batch_i}_epoch{epochNo}_pred.jpg'  # predictions
             Thread(target=plot_images, args=(img, output_to_target(output), paths, f, names), daemon=True).start()
-
+        if plots and plot_all_predictions:
+            imgpath=(save_dir / 'all_pred_imgs')
+            imgpath.mkdir(parents=True, exist_ok=True)
+            f = imgpath / f'{loss.cpu().sum().item()}_total_{loss.cpu().numpy()}_boc_test_batch{batch_i}_pred.jpg'  # predictions
+            Thread(target=plot_images, args=(img, output_to_target(output), paths, f, names,1248), daemon=True).start()
     # Compute statistics
     stats = [np.concatenate(x, 0) for x in zip(*stats)]  # to numpy
     if len(stats) and stats[0].any():
@@ -222,7 +231,7 @@ def test(data,
         nt = torch.zeros(1)
 
     # Print results
-    pf = '%20s' + '%12.3g' * 6  # print format
+    pf = '%20s' + '%12.5g' * 6  # print format
     print(pf % ('all', seen, nt.sum(), mp, mr, map50, map))
 
     # Print results per class
@@ -298,6 +307,8 @@ if __name__ == '__main__':
     parser.add_argument('--project', default='runs/test', help='save to project/name')
     parser.add_argument('--name', default='exp', help='save to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
+    parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --class 0, or --class 0 2 3')
+
     opt = parser.parse_args()
     opt.save_json |= opt.data.endswith('coco.yaml')
     opt.data = check_file(opt.data)  # check file

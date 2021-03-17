@@ -97,7 +97,7 @@ def output_to_target(output):
     return np.array(targets)
 
 
-def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max_size=640, max_subplots=16):
+def plot_images(images, targets, paths=None, fname='images.jpg', names=None, isLabelImage=False, max_size=2560, max_subplots=4):
     # Plot image grid with labels
 
     if isinstance(images, torch.Tensor):
@@ -109,7 +109,7 @@ def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max
     if np.max(images[0]) <= 1:
         images *= 255
 
-    tl = 3  # line thickness
+    tl = 2  # line thickness
     tf = max(tl - 1, 1)  # font thickness
     bs, _, h, w = images.shape  # batch size, _, height, width
     bs = min(bs, max_subplots)  # limit plot images
@@ -156,7 +156,7 @@ def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max
                 cls = names[cls] if names else cls
                 if labels or conf[j] > 0.25:  # 0.25 conf thresh
                     label = '%s' % cls if labels else '%s %.1f' % (cls, conf[j])
-                    plot_one_box(box, mosaic, label=label, color=color, line_thickness=tl)
+                    plot_one_box(box, mosaic, label=None, color=color, line_thickness=tl)
 
         # Draw image filename labels
         if paths:
@@ -168,11 +168,16 @@ def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max
         # Image border
         cv2.rectangle(mosaic, (block_x, block_y), (block_x + w, block_y + h), (255, 255, 255), thickness=3)
 
+        if isLabelImage:
+            gt_sticker = "GT LABEL"
+            t_size = cv2.getTextSize(gt_sticker,0,fontScale=tl / 3, thickness=tf)[0]
+            cv2.rectangle(mosaic, (block_x, block_y), (block_x + w, block_y + h), (255, 0, 0), thickness=3) #red border for gt label
+
     if fname:
-        r = min(1280. / max(h, w) / ns, 1.0)  # ratio to limit image size
+        r = min(6*1280. / max(h, w) / ns, 1.0)  # ratio to limit image size
         mosaic = cv2.resize(mosaic, (int(ns * w * r), int(ns * h * r)), interpolation=cv2.INTER_AREA)
         # cv2.imwrite(fname, cv2.cvtColor(mosaic, cv2.COLOR_BGR2RGB))  # cv2 save
-        Image.fromarray(mosaic).save(fname)  # PIL save
+        Image.fromarray(mosaic).save(fname, quality=95)  # PIL save
     return mosaic
 
 

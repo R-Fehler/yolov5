@@ -471,6 +471,10 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                         l = np.array(l, dtype=np.float32)
                     if len(l):
                         assert l.shape[1] == 5, 'labels require 5 columns each'
+                        # todo filter labels that are negative of out of bounds
+                        positiveFiltered = l >= 0
+                        boundFiltered = positiveFiltered[:, 1:] <= 1
+                        l = boundFiltered
                         assert (l >= 0).all(), 'negative labels'
                         assert (l[:, 1:] <= 1).all(), 'non-normalized or out of bounds coordinate labels'
                         assert np.unique(l, axis=0).shape[0] == l.shape[0], 'duplicate labels'
