@@ -341,7 +341,8 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
             if ema:
                 ema.update_attr(model, include=['yaml', 'nc', 'hyp', 'gr', 'names', 'stride', 'class_weights'])
             final_epoch = epoch + 1 == epochs
-            if not opt.notest or final_epoch:  # Calculate mAP
+            every_nth_testing=epoch % 15 == 0 # test every n epochs
+            if (not opt.notest and every_nth_testing) or final_epoch:  # Calculate mAP
                 results, maps, times = test.test(opt.data,
                                                  batch_size=batch_size * 2,
                                                  imgsz=imgsz_test,
