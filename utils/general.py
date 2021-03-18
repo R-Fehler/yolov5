@@ -79,7 +79,7 @@ def check_git_status():
                 f"Use 'git pull' to update or 'git clone {url}' to download latest."
         else:
             s = f'up to date with {url} ✅'
-        print(s.encode().decode('ascii', 'ignore') if platform.system() == 'Windows' else s)
+        print(s.encode().decode('ascii', 'ignore') if platform.system() == 'Windows' else s)  # emoji-safe
     except Exception as e:
         print(e)
 
@@ -312,7 +312,7 @@ def clip_coords(boxes, img_shape):
     boxes[:, 3].clamp_(0, img_shape[0])  # y2
 
 
-def bbox_iou(box1, box2, x1y1x2y2=True, GIoU=False, DIoU=False, CIoU=False, eps=1e-9):
+def bbox_iou(box1, box2, x1y1x2y2=True, GIoU=False, DIoU=False, CIoU=False, eps=1e-7):
     # Returns the IoU of box1 to box2. box1 is 4, box2 is nx4
     box2 = box2.T
 
@@ -348,7 +348,7 @@ def bbox_iou(box1, box2, x1y1x2y2=True, GIoU=False, DIoU=False, CIoU=False, eps=
             elif CIoU:  # https://github.com/Zzh-tju/DIoU-SSD-pytorch/blob/master/utils/box/box_utils.py#L47
                 v = (4 / math.pi ** 2) * torch.pow(torch.atan(w2 / h2) - torch.atan(w1 / h1), 2)
                 with torch.no_grad():
-                    alpha = v / ((1 + eps) - iou + v)
+                    alpha = v / (v - iou + (1 + eps))
                 return iou - (rho2 / c2 + v * alpha)  # CIoU
         else:  # GIoU https://arxiv.org/pdf/1902.09630.pdf
             c_area = cw * ch + eps  # convex area
@@ -390,11 +390,12 @@ def wh_iou(wh1, wh2):
     return inter / (wh1.prod(2) + wh2.prod(2) - inter)  # iou = inter / (area1 + area2 - inter)
 
 
-def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=None, agnostic=False, labels=()):
-    """Performs Non-Maximum Suppression (NMS) on inference results
+def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=None, agnostic=False, multi_label=False,
+                        labels=()):
+    """Runs Non-Maximum Suppression (NMS) on inference results
 
     Returns:
-         detections with shape: nx6 (x1, y1, x2, y2, conf, cls)
+         list of detections, on (n,6) tensor per image [xyxy, conf, cls]
     """
 
     nc = prediction.shape[2] - 5  # number of classes
@@ -406,7 +407,7 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
     max_nms = 30000  # maximum number of boxes into torchvision.ops.nms()
     time_limit = 10.0  # seconds to quit after
     redundant = True  # require redundant detections
-    multi_label = nc > 1  # multiple labels per box (adds 0.5ms/img)
+    multi_label &= nc > 1  # multiple labels per box (adds 0.5ms/img)
     merge = False  # use merge-NMS
 
     t = time.time()
@@ -480,18 +481,20 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
     return output
 
 
-def strip_optimizer(f='weights/best.pt', s=''):  # from utils.general import *; strip_optimizer()
+def strip_optimizer(f='best.pt', s=''):  # from utils.general import *; strip_optimizer()
     # Strip optimizer from 'f' to finalize training, optionally save as 's'
     x = torch.load(f, map_location=torch.device('cpu'))
-    for key in 'optimizer', 'training_results', 'wandb_id':
-        x[key] = None
+    if x.get('ema'):
+        x['model'] = x['ema']  # replace model with ema
+    for k in 'optimizer', 'training_results', 'wandb_id', 'ema', 'updates':  # keys
+        x[k] = None
     x['epoch'] = -1
     x['model'].half()  # to FP16
     for p in x['model'].parameters():
         p.requires_grad = False
     torch.save(x, s or f)
     mb = os.path.getsize(s or f) / 1E6  # filesize
-    print('Optimizer stripped from %s,%s %.1fMB' % (f, (' saved as %s,' % s) if s else '', mb))
+    print(f"Optimizer stripped from {f},{(' saved as %s,' % s) if s else ''} {mb:.1f}MB")
 
 
 def print_mutation(hyp, results, yaml_file='hyp_evolved.yaml', bucket=''):
