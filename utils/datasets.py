@@ -470,7 +470,14 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                             l = np.concatenate((classes.reshape(-1, 1), segments2boxes(segments)), 1)  # (cls, xywh)
                         l = np.array(l, dtype=np.float32)
                     if len(l):
+                        filteredLabelLines=[]
                         assert l.shape[1] == 5, 'labels require 5 columns each'
+                        # filter out labels that are negative or out of bounds
+                        for line in l:
+                            labelOK=(line>=0).all() and (line[1:]<=1).all()
+                            if(labelOK):
+                               filteredLabelLines.append(line)
+                        l = np.array(filteredLabelLines)
                         assert (l >= 0).all(), 'negative labels'
                         assert (l[:, 1:] <= 1).all(), 'non-normalized or out of bounds coordinate labels'
                         assert np.unique(l, axis=0).shape[0] == l.shape[0], 'duplicate labels'
