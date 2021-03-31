@@ -85,8 +85,8 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
         model = Model(opt.cfg, ch=3, nc=nc, anchors=hyp.get('anchors')).to(device)  # create
 
     # Freeze
-    # freeze = []  # parameter names to freeze (full or partial)    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
-    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+    freeze = []  # parameter names to freeze (full or partial)    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+    # freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
 
     for k, v in model.named_parameters():
         v.requires_grad = True  # train all layers
@@ -404,6 +404,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
 
     if rank in [-1, 0]:
         # Strip optimizers
+        # TODO remove stripping so you can continue training
         final = best if best.exists() else last  # final model
         for f in last, best:
             if f.exists():
