@@ -5,8 +5,11 @@ from pathlib import Path
 import cv2
 import torch
 import torch.backends.cudnn as cudnn
-from numpy import random
+import yaml
+import numpy as np
+from PIL import Image, ImageDraw
 
+from numpy import random
 from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
 from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, \
@@ -17,6 +20,7 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 def detect(save_img=False):
     source, weights, view_img, save_txt, imgsz = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
+    save_txt=True
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
         ('rtsp://', 'rtmp://', 'http://'))
 
@@ -80,6 +84,7 @@ def detect(save_img=False):
             pred = apply_classifier(pred, modelc, img, im0s)
 
         # Process detections
+        predictions=[]
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = path[i], '%g: ' % i, im0s[i].copy(), dataset.count
@@ -93,15 +98,36 @@ def detect(save_img=False):
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
             if len(det):
                 # Rescale boxes from img_size to im0 size
-                det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
+                det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape)
 
                 # Print results
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
 
+                # for my yaml output
+                predictions = det.cpu().numpy().tolist()
+                # to match the image id order
+                predictions.reverse()
+
                 # Write results
+                i=0
                 for *xyxy, conf, cls in reversed(det):
+                    bboxXYXY=[x.item() for x in xyxy]
+                    imgshape=im0.shape[:2]
+                    imgshape=(im0.shape[1],im0.shape[0]) # swap width and height
+                    # bitmask=np.zeros((imgshape[0],imgshape[1],3),dtype=np.uint8)
+
+                    # maskImg=Image.fromarray((bitmask).astype(np.uint8))
+                    maskImg=Image.new('L',imgshape,0) # witdh then height needed
+                    draw=ImageDraw.Draw(maskImg)
+                    draw.rectangle(bboxXYXY,fill=255,outline=255)
+                    # maskImg.show(title=f'{save_path}/{i}.jpg')
+                    newBitMask=np.asarray(maskImg,dtype=np.uint8)
+                    instanceFolderPath=save_dir /'instanceMasks'/ p.stem
+                    instanceFolderPath.mkdir(parents=True,exist_ok=True)
+                    isSaved=cv2.imwrite(f'{instanceFolderPath}/{i:06d}.png',newBitMask)
+                    i=i+1
                     if save_txt:  # Write to file
                         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         line = (cls, *xywh, conf) if opt.save_conf else (cls, *xywh)  # label format
@@ -123,7 +149,8 @@ def detect(save_img=False):
             # Save results (image with detections)
             if save_img:
                 if dataset.mode == 'image':
-                    cv2.imwrite(save_path, im0)
+                    smallOutImage=cv2.resize(im0, (int(im0.shape[1]/4),int(im0.shape[0]/4)), interpolation=cv2.INTER_AREA)
+                    cv2.imwrite(save_path, smallOutImage)
                 else:  # 'video'
                     if vid_path != save_path:  # new video
                         vid_path = save_path
@@ -136,6 +163,52 @@ def detect(save_img=False):
                         h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
                         vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*fourcc), fps, (w, h))
                     vid_writer.write(im0)
+        bboxFolderPath=save_dir/'bboxYAMLfiles'
+        bboxFolderPath.mkdir(parents=True,exist_ok=True)
+        bboxFilePath=bboxFolderPath /f'{p.stem}.yaml'
+        with open(bboxFilePath,'w') as file:
+            mvd_to_seamseg_classlabels={
+0:0,
+1:1,
+2:8,
+3:19,
+4:20,
+5:21,
+6:22,
+7:23,
+8:32,
+9:33,
+10:34,
+11:35,
+12:36,
+13:37,
+14:38,
+15:39,
+16:40,
+17:41,
+18:42,
+19:44,
+20:45,
+21:46,
+22:47,
+23:48,
+24:49,
+25:50,
+26:51,
+27:52,
+28:53,
+29:54,
+30:55,
+31:56,
+32:57,
+33:59,
+34:60,
+35:61,
+36:62
+}
+            myDetections=[  {"bbox" : predictions[i][:4],"class": mvd_to_seamseg_classlabels[int(predictions[i][5])], "id":i, "objectness": predictions[i][4]}  for i in range(len(predictions))]
+            yaml.dump(myDetections,file,sort_keys=False)
+
 
     if save_txt or save_img:
         s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
