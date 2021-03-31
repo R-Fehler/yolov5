@@ -85,7 +85,9 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
         model = Model(opt.cfg, ch=3, nc=nc, anchors=hyp.get('anchors')).to(device)  # create
 
     # Freeze
-    freeze = []  # parameter names to freeze (full or partial)
+    freeze = []  # parameter names to freeze (full or partial)    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+    # freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+
     for k, v in model.named_parameters():
         v.requires_grad = True  # train all layers
         if any(x in k for x in freeze):
@@ -342,16 +344,19 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
             # mAP
             ema.update_attr(model, include=['yaml', 'nc', 'hyp', 'gr', 'names', 'stride', 'class_weights'])
             final_epoch = epoch + 1 == epochs
-            if not opt.notest or final_epoch:  # Calculate mAP
+            #todo testing often first, then less when converging
+            every_nth_testing=epoch % 5 == 0 # test every n epochs
+            if (not opt.notest and every_nth_testing) or final_epoch:  # Calculate mAP
                 results, maps, times = test.test(opt.data,
+                                                epochNo=epoch,
                                                  batch_size=batch_size * 2,
                                                  imgsz=imgsz_test,
                                                  model=ema.ema,
                                                  single_cls=opt.single_cls,
                                                  dataloader=testloader,
                                                  save_dir=save_dir,
-                                                 verbose=nc < 50 and final_epoch,
-                                                 plots=plots and final_epoch,
+                                                 verbose=nc < 50 ,
+                                                 plots=plots,
                                                  log_imgs=opt.log_imgs if wandb else 0,
                                                  compute_loss=compute_loss)
 
@@ -399,6 +404,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
 
     if rank in [-1, 0]:
         # Strip optimizers
+        # TODO remove stripping so you can continue training
         final = best if best.exists() else last  # final model
         for f in last, best:
             if f.exists():
