@@ -1,0 +1,5 @@
+ python train.py --img 1280 --batch 26 --epochs 50 --data ostring.yaml --hyp hyp.finetune.yaml --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --cache --device 1,2
+ python train.py --img 1280 --batch 8 --epochs 1000 --data ostring_overfit_on_GT.yaml --hyp hyp.scratch.yaml --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --cache --device 0,1
+ python train.py --img 1280 --batch 8 --epochs 300 --data ostring_yolo_detections_GT_Scenes.yaml --hyp hyp.scratch.yaml --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --cache --device 0,1
+ python train.py --img 1280 --batch 12 --epochs 50 --data ostring_yolo_PE_Tool.yaml --hyp hyp.finetune.yaml --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --cache --device 4 --freeze True
+ python train.py --img 1280 --batch 1 --epochs 50 --data ostring_yolo_PE_Tool.yaml --hyp hyp.finetune.yaml --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --device 2 --freeze True

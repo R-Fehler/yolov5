@@ -1,0 +1,8 @@
+Namespace(augment=False, batch_size=24, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp143/weights/best.pt'])
+Fusing layers... 
+                 all         694       30495       0.336       0.227       0.159      0.0453
+                Pole         694       12666       0.227       0.167       0.083      0.0156
+       Traffic_Light         694        5232       0.432        0.34        0.28      0.0845
+Traffic_Sign_(Front)         694       12597       0.348       0.174       0.113      0.0357
+Speed: 9.1/2.6/11.6 ms inference/NMS/total per 1248x1248 image at batch-size 24
+Results saved to runs/test/exp74

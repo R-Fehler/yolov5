@@ -1,0 +1,235 @@
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp143/weights/best.pt'])
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002710.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002711.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002720.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002721.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002722.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002724.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002725.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002726.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002728.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002729.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002730.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002731.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002734.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002735.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002736.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002738.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002739.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002748.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002752.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002753.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002754.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002755.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002758.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002760.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002761.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002766.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002767.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002768.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002771.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002772.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002774.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002775.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002778.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002779.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002782.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002783.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002785.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002786.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002788.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002791.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002793.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000002794.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003707.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003709.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003716.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003738.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003748.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003750.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003752.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003753.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003756.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003757.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003758.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003759.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003761.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003762.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003763.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003767.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003770.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003772.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003773.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003775.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003776.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003777.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003778.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003780.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003781.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003786.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003787.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003788.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003793.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003794.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003795.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003796.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003801.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003802.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003816.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003817.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003818.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003819.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003820.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003821.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003822.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003829.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003834.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003835.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003836.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003837.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003838.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003839.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003858.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003860.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003861.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003862.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003863.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003871.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003872.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003873.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003874.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003875.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003876.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003888.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003889.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003894.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003895.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003900.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003904.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003905.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003906.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003916.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003917.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003918.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003921.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003932.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003933.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003934.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003937.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003945.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003950.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003955.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003958.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003963.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003964.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003966.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003967.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003975.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003976.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003977.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003978.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003982.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003983.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003984.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003985.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003987.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003988.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003989.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003990.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003991.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003993.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003994.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003995.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003996.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003997.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003998.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000003999.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004000.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004001.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004002.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004003.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004004.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004005.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004008.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004010.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004011.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004012.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004016.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004019.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004022.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004027.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004029.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004035.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004036.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004048.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004049.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004054.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004055.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000004056.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006125.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006127.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006169.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006170.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006172.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006173.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006183.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006184.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006185.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006187.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006188.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006190.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006191.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006192.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006193.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006194.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006202.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006203.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006204.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006208.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006209.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006211.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006212.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006216.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006217.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006218.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006224.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006232.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006234.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006235.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006238.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006239.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006240.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006242.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006243.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006245.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006259.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006260.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006261.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006262.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006268.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006286.png: negative labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006287.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006288.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006295.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006297.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006298.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006300.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006301.png: non-normalized or out of bounds coordinate labels
+[34m[1mtest: [0mWARNING: Ignoring corrupted image and/or label ../ostring_total_for_testing/images/test/0000006308.png: non-normalized or out of bounds coordinate labels
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+                 all         694       30495       0.299       0.178       0.109      0.0338
+                Pole         694       12666       0.141        0.11      0.0235     0.00436
+       Traffic_Light         694        5232       0.435        0.29       0.225       0.072
+Traffic_Sign_(Front)         694       12597       0.322       0.134       0.079       0.025
+Speed: 11.2/7.9/19.1 ms inference/NMS/total per 1248x1248 image at batch-size 12
+Results saved to runs/test/exp73

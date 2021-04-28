@@ -1,0 +1,2 @@
+source ~/venv-yolo/bin/activate
+python detect.py --weights runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt --img 1248 --conf 0.25 --source /home/fehler/mrtstorage_pauls_fehler/ostring_fang/front_color_sphere/ --device 3 --classes 20 23 24 25

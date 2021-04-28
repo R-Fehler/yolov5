@@ -1,0 +1,19 @@
+Namespace(augment=False, batch_size=12, classes=None, conf_thres=0.001, data='./data/ostring_yolo_PE_Tool.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring_yolo_PE_Tool.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring_yolo_PE_Tool.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+                 all         694       30495       0.299       0.178       0.109      0.0338
+                Pole         694       12666       0.141        0.11      0.0235     0.00436
+       Traffic_Light         694        5232       0.435        0.29       0.225       0.072
+Traffic_Sign_(Front)         694       12597       0.322       0.134       0.079       0.025
+Speed: 9.3/4.0/13.2 ms inference/NMS/total per 1248x1248 image at batch-size 12
+Results saved to runs/test/exp77
+Namespace(augment=False, batch_size=12, conf_thres=0.001, data='./data/ostring_yolo_PE_Tool.yaml', device='2', exist_ok=False, img_size=1248, iou_thres=0.6, name='exp', project='runs/test', save_conf=False, save_hybrid=False, save_json=False, save_txt=False, single_cls=False, task='test', verbose=True, weights=['runs/train/exp71_MVD_200_Epochs_optimizer_stripped/weights/best.pt'])
+Fusing layers... 
+                 all         694       30495       0.299       0.178       0.109      0.0338
+                Pole         694       12666       0.141        0.11      0.0235     0.00436
+       Traffic_Light         694        5232       0.435        0.29       0.225       0.072
+Traffic_Sign_(Front)         694       12597       0.322       0.134       0.079       0.025
+Speed: 9.3/4.0/13.2 ms inference/NMS/total per 1248x1248 image at batch-size 12
+Results saved to runs/test/exp79
