@@ -85,8 +85,10 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
         model = Model(opt.cfg, ch=3, nc=nc, anchors=hyp.get('anchors')).to(device)  # create
 
     # Freeze
-    freeze = []  # parameter names to freeze (full or partial)    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
-    # freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+    if(opt.freeze):
+        freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
+    else:
+        freeze = []  # parameter names to freeze (full or partial)    freeze = ['model.%s.' % x for x in range(10)]  # parameter names to freeze (full or partial)
 
     for k, v in model.named_parameters():
         v.requires_grad = True  # train all layers
@@ -327,7 +329,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                     Thread(target=plot_images, args=(imgs, targets, paths, f), daemon=True).start()
                     # if tb_writer:
                     #     tb_writer.add_image(f, result, dataformats='HWC', global_step=epoch)
-                    #     tb_writer.add_graph(model, imgs)  # add model to tensorboard
+                    # tb_writer.add_graph(torch.jit.trace(model, imgs, strict=False), [])  # add model graph
                 elif plots and ni == 10 and wandb:
                     wandb.log({"Mosaics": [wandb.Image(str(x), caption=x.name) for x in save_dir.glob('train*.jpg')
                                            if x.exists()]}, commit=False)
@@ -344,9 +346,10 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
             # mAP
             ema.update_attr(model, include=['yaml', 'nc', 'hyp', 'gr', 'names', 'stride', 'class_weights'])
             final_epoch = epoch + 1 == epochs
+            first_epoch = epoch == 0
             #todo testing often first, then less when converging
-            every_nth_testing=epoch % 5 == 0 # test every n epochs
-            if (not opt.notest and every_nth_testing) or final_epoch:  # Calculate mAP
+            every_nth_testing=epoch % 1 == 0 # test every n epochs
+            if (not opt.notest and every_nth_testing) or final_epoch or first_epoch:  # Calculate mAP
                 results, maps, times = test.test(opt.data,
                                                 epochNo=epoch,
                                                  batch_size=batch_size * 2,
@@ -479,6 +482,7 @@ if __name__ == '__main__':
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--quad', action='store_true', help='quad dataloader')
     parser.add_argument('--linear-lr', action='store_true', help='linear LR')
+    parser.add_argument('--freeze',type=bool,default=False,help='True if you want to freeze backbone --> larger batchsize')
     opt = parser.parse_args()
 
     # Set DDP variables

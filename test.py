@@ -309,7 +309,7 @@ if __name__ == '__main__':
     parser.add_argument('--project', default='runs/test', help='save to project/name')
     parser.add_argument('--name', default='exp', help='save to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
-    parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --class 0, or --class 0 2 3')
+    # parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --class 0, or --class 0 2 3')
 
     opt = parser.parse_args()
     opt.save_json |= opt.data.endswith('coco.yaml')
@@ -318,20 +318,38 @@ if __name__ == '__main__':
     check_requirements()
 
     if opt.task in ('train', 'val', 'test'):  # run normally
-        test(opt.data,
-             opt.weights,
-             opt.batch_size,
-             opt.img_size,
-             opt.conf_thres,
-             opt.iou_thres,
-             opt.save_json,
-             opt.single_cls,
-             opt.augment,
-             opt.verbose,
-             save_txt=opt.save_txt | opt.save_hybrid,
-             save_hybrid=opt.save_hybrid,
-             save_conf=opt.save_conf,
-             )
+        if(opt.task == 'test'):
+            epochNo=0
+            test(opt.data,
+                epochNo,
+                opt.weights,
+                opt.batch_size,
+                opt.img_size,
+                opt.conf_thres,
+                opt.iou_thres,
+                opt.save_json,
+                opt.single_cls,
+                opt.augment,
+                opt.verbose,
+                save_txt=opt.save_txt | opt.save_hybrid,
+                save_hybrid=opt.save_hybrid,
+                save_conf=opt.save_conf,
+                )
+        else:    
+            test(opt.data,
+                opt.weights,
+                opt.batch_size,
+                opt.img_size,
+                opt.conf_thres,
+                opt.iou_thres,
+                opt.save_json,
+                opt.single_cls,
+                opt.augment,
+                opt.verbose,
+                save_txt=opt.save_txt | opt.save_hybrid,
+                save_hybrid=opt.save_hybrid,
+                save_conf=opt.save_conf,
+                )
 
     elif opt.task == 'speed':  # speed benchmarks
         for w in opt.weights:
